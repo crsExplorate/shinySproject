@@ -6,25 +6,42 @@
 #
 
 library(shiny)
+library(shinydashboard)
 
-shinyUI(fluidPage(
+# shinyUI(fluidPage(
+# 
+#   # Application title
+#   titlePanel("Old Faithful Geyser Data"),
+# 
+#   # Sidebar with a slider input for number of bins
+#   sidebarLayout(
+#     sidebarPanel(
+#       sliderInput("bins",
+#                   "Number of bins:",
+#                   min = 1,
+#                   max = 50,
+#                   value = 30)
+#     ),
+# 
+#     # Show a plot of the generated distribution
+#     mainPanel(
+#       plotOutput("distPlot")
+#     )
+#   )
+# ))
 
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
-
-  # Sidebar with a slider input for number of bins
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
-    ),
-
-    # Show a plot of the generated distribution
-    mainPanel(
-      plotOutput("distPlot")
+ui<-dashboardPage(
+  dashboardHeader(title = "Confidence Model"),
+  dashboardSidebar(),
+  dashboardBody(
+    fluidRow(
+      box(plotOutput("distPlot", height = 250)),
+      
+      box(
+        title = "Controls",
+        sliderInput("bins", "Number of bins:", min = 1, max = 50, value = 30)
+      )
+      
     )
   )
-))
+)
