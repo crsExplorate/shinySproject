@@ -23,7 +23,7 @@ sidebar<-dashboardSidebar(
   sliderInput("prob", "Probability Cut",
               min = 0, max = 1, value = 0.5, step = 0.01
   ),
-  checkboxInput("outliers", "Show outliers", FALSE),
+  #checkboxInput("outliers", "Show outliers", FALSE),
   sidebarMenu(
     menuItem("Main Board", tabName = "dashboard", icon = icon("dashboard")),
     menuItem("Model Details", tabName = "details", icon = icon("area-chart")),
@@ -36,29 +36,29 @@ body<-dashboardBody(
     tabItem(tabName = "dashboard",
             fluidRow(
               # A static infoBox
-              infoBox("Accuracy", textOutput("modelAccuracy"), icon = icon("credit-card"),
+              infoBox("Accuracy", textOutput("modelAccuracy"), icon = icon("thumbs-up", lib = "glyphicon"),
                       color="red"
               ),
               infoBox(
-                "Recall", textOutput("modelRecall"), icon = icon("list"),
+                "Recall", textOutput("modelRecall"), icon = icon("plus-square-o"),
                 color = "orange"
               ),
               infoBox(
-                "Sensitivity", textOutput("modelSensitivity"), icon = icon("thumbs-up", lib = "glyphicon"),
+                "Sensitivity", textOutput("modelSensitivity"), icon = icon("check-square-o"),
                 color = "purple"
               )
             ),
             fluidRow(
               # A static infoBox
-              infoBox("F1 Score", textOutput("modelF1"), icon = icon("credit-card"),
+              infoBox("F1 Score", textOutput("modelF1"), icon = icon("stethoscope"),
                       color="red"
               ),
               infoBox(
-                "Specificity", textOutput("modelSpecificity"), icon = icon("list"),
+                "Specificity", textOutput("modelSpecificity"), icon = icon("minus-square-o"),
                 color = "orange"
               ),
               infoBox(
-                "Precision", textOutput("modelPrecision"), icon = icon("thumbs-up", lib = "glyphicon"),
+                "Precision", textOutput("modelPrecision"), icon = icon("plus-square"),
                 color = "purple"
               )
             ),
@@ -95,15 +95,15 @@ body<-dashboardBody(
             h2("Widgets tab content"),
             fluidRow(
               # A static infoBox
-              infoBox("Degrees of Freedom", textOutput("modelDOF"), icon = icon("credit-card"),
+              infoBox("Degrees of Freedom", textOutput("modelDOF"), icon = icon("random"),
                       color="red"
               ),
               infoBox(
-                "AUC", textOutput("modelAUC"), icon = icon("list"),
+                "AUC", textOutput("modelAUC"), icon = icon("line-chart"),
                 color = "orange"
               ),
               infoBox(
-                "AIC", textOutput("modelAIC"), icon = icon("thumbs-up", lib = "glyphicon"),
+                "AIC", textOutput("modelAIC"), icon = icon("gavel"),
                 color = "purple"
               )
               
@@ -123,8 +123,21 @@ body<-dashboardBody(
             )
     ),
     tabItem(tabName = "about",
-            h2("About tab content"),
-            h3("http://google.es") 
+            h2("About this application"),
+            wellPanel(
+              helpText(
+              "This is a simple projecto to test the capabilities of data product development. ",  
+              "More details are availabe on ",
+              a("Google",href="http://google.es",target="_blank"),"."
+              ),
+              br(),
+              "This project is based on ",
+              a("Shiny",href="http://shiny.rstudio.com/",target="_blank"),
+              " and ",
+              a("Shinydashboard",href="http://rstudio.github.io/shinydashboard/",target="_blank"),
+              "."
+            )
+            
             )
   )
 )

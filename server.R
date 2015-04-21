@@ -20,7 +20,7 @@ findCorrespondence<-function(t,x,y){
   if(!is.na(xhigh)){
     idx=idx+round((t-xlow)/(xhigh-xlow))
   }
-  y[idx]
+  prettyNum(y[idx],digits=3)
 }
   
 buildModel<-function(){
