@@ -126,9 +126,9 @@ body<-dashboardBody(
             h2("About this application"),
             wellPanel(
               helpText(
-              "This is a simple projecto to test the capabilities of data product development. ",  
+              "This is a simple project to test the capabilities of data product development. ",  
               "More details are availabe on ",
-              a("Google",href="http://google.es",target="_blank"),"."
+              a("RPubs",href="http://rpubs.com/crsExplorate/sprojectPresentation",target="_blank"),"."
               ),
               br(),
               "This project is based on ",
@@ -136,6 +136,16 @@ body<-dashboardBody(
               " and ",
               a("Shinydashboard",href="http://rstudio.github.io/shinydashboard/",target="_blank"),
               "."
+            ),
+            h3("Application description"),
+            wellPanel(
+              "This application allows to compare several logit regression models and  ",
+              " several main characteristics.",
+              " For each specie of the iris data set several models has been built, and this app allows to chose an objetive Specie and a model.",
+              " Based on several characteristics try to determine if the data corresponds to this specie.",
+              " The user can change the cutoff probability to analyze thier effect.",br(),
+              " The main tab shows the measures that are affected by this cange. On the other hand, on the model details generic information ",
+              " of the selected model is shown."
             )
             
             )

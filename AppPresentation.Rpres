@@ -1,0 +1,64 @@
+Simple Model Analyzer App
+========================================================
+author: Data Product practice
+date: 21st April, 2015
+font-import: http://fonts.googleapis.com/css?family=Risque
+font-family: 'Risque'
+navigation: section
+
+Simple Model Analyzer Structure
+========================================================
+
+A simple project to test the capabilities of data product development based on **Shiny**.  
+
+This application allows to compare several logit regression models to compare several characteristics of the models.
+
+For each specie on the iris dataset, several models are available. The user can check what are the better one for each specie and the effects of the cutoff probability several measures.
+
+
+Iris Data Set
+========================================================
+
+The iris data set has `r nrow(iris)` observations and the avaliable especies are  `r unique(iris$Species)`. 
+
+```{r, echo=FALSE, fig.height=7, fig.width=12}
+require(ggplot2)
+require(gridExtra)
+plot1 <- qplot(Sepal.Width,Sepal.Length,data=iris,color=Species)
+plot2 <- qplot(Petal.Width,Petal.Length,data=iris,color=Species)
+grid.arrange(plot1, plot2, ncol=2,main = "Main characteristics of each species")
+```
+
+App Measures
+========================================================
+
+This application allows to compare several characteristics of the models.
+
+- AUC: Area under the ROC curve
+- AIC: Akaike's An Information Criterion 
+- Degrees of freedom
+
+***
+
+The cutoff probability is allowed to be specified by the users. 
+
+This measures change based on cutoff:
+
+- Accuracy
+- Recall
+- Sensitivity
+- Specificity
+- Precision
+- F1 Score
+
+
+Deployed app
+========================================================
+type: prompt
+
+The application is deployed on [Shinyapps](https://crsexplorate.shinyapps.io/sproject/) and it is public available.
+
+The code for the app is availabe on [Github](https://github.com/crsExplorate/shinySproject).
+
+I hope you enjoyed this brief presentation.
+
